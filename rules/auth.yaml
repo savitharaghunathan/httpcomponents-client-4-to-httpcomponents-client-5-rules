@@ -1,0 +1,48 @@
+- ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00090
+  description: BasicCredentialsProvider has been relocated from org.apache.http.impl.client to org.apache.hc.client5.http.impl.auth ...
+  category: mandatory
+  effort: 1
+  labels:
+    - konveyor.io/source=httpcomponents-client-4
+    - konveyor.io/target=httpcomponents-client-5
+    - konveyor.io/generated-by=ai-rule-gen
+    - konveyor.io/test-result=passed
+    - konveyor.io/review=unreviewed
+  message: |-
+    The `BasicCredentialsProvider` class has moved from `org.apache.http.impl.client` to `org.apache.hc.client5.http.impl.auth` in HttpClient 5.x. Update your import accordingly.
+
+    ```java
+    // Before
+    import org.apache.http.impl.client.BasicCredentialsProvider;
+
+    // After
+    import org.apache.hc.client5.http.impl.auth.BasicCredentialsProvider;
+    ```
+  when:
+    java.referenced:
+        pattern: org.apache.http.impl.client.BasicCredentialsProvider
+        location: IMPORT
+- ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00210
+  description: CredentialsProvider interface has been relocated from org.apache.http.client to org.apache.hc.client5.http.auth in Ht...
+  category: mandatory
+  effort: 1
+  labels:
+    - konveyor.io/source=httpcomponents-client-4
+    - konveyor.io/target=httpcomponents-client-5
+    - konveyor.io/generated-by=ai-rule-gen
+    - konveyor.io/test-result=passed
+    - konveyor.io/review=unreviewed
+  message: |-
+    The `CredentialsProvider` interface has moved from `org.apache.http.client` to `org.apache.hc.client5.http.auth` in HttpClient 5.x. Update your import accordingly.
+
+    ```java
+    // Before
+    import org.apache.http.client.CredentialsProvider;
+
+    // After
+    import org.apache.hc.client5.http.auth.CredentialsProvider;
+    ```
+  when:
+    java.referenced:
+        pattern: org.apache.http.client.CredentialsProvider
+        location: IMPORT

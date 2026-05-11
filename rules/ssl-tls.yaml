@@ -1,0 +1,48 @@
+- ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00030
+  description: SSLConnectionSocketFactory has been relocated from org.apache.http.conn.ssl to org.apache.hc.client5.http.ssl in Http...
+  category: mandatory
+  effort: 5
+  labels:
+    - konveyor.io/source=httpcomponents-client-4
+    - konveyor.io/target=httpcomponents-client-5
+    - konveyor.io/generated-by=ai-rule-gen
+    - konveyor.io/test-result=passed
+    - konveyor.io/review=unreviewed
+  message: |-
+    The `SSLConnectionSocketFactory` class has moved from `org.apache.http.conn.ssl` to `org.apache.hc.client5.http.ssl` in HttpClient 5.x. Consider using `HttpClientConnectionManagerBuilder` with TLS configuration for the 5.x approach.
+
+    ```java
+    // Before
+    import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+
+    // After
+    import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
+    ```
+  when:
+    java.referenced:
+        pattern: org.apache.http.conn.ssl.SSLConnectionSocketFactory
+        location: IMPORT
+- ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00040
+  description: SSLContexts utility class has been relocated from org.apache.http.ssl to org.apache.hc.core5.ssl in HttpClient 5.x.
+  category: mandatory
+  effort: 1
+  labels:
+    - konveyor.io/source=httpcomponents-client-4
+    - konveyor.io/target=httpcomponents-client-5
+    - konveyor.io/generated-by=ai-rule-gen
+    - konveyor.io/test-result=passed
+    - konveyor.io/review=unreviewed
+  message: |-
+    The `SSLContexts` utility class has moved from `org.apache.http.ssl` to `org.apache.hc.core5.ssl` in HttpClient 5.x. Update your import accordingly.
+
+    ```java
+    // Before
+    import org.apache.http.ssl.SSLContexts;
+
+    // After
+    import org.apache.hc.core5.ssl.SSLContexts;
+    ```
+  when:
+    java.referenced:
+        pattern: org.apache.http.ssl.SSLContexts
+        location: IMPORT

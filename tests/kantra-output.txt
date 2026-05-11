@@ -1,0 +1,77 @@
+
+command: /Users/sraghuna/.kantra/java-external-provider --port 62666 --name java
+auth.test.yaml                                             2/2 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00090 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00210 1/1 PASSED
+------------------------------------------------------------
+  Rules Summary:      2/2 (100.00%) PASSED
+  Test Cases Summary: 2/2 (100.00%) PASSED
+------------------------------------------------------------
+
+
+command: /Users/sraghuna/.kantra/java-external-provider --port 62689 --name java
+config.test.yaml                                           4/4 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00050 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00060 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00070 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00190 1/1 PASSED
+------------------------------------------------------------
+  Rules Summary:      4/4 (100.00%) PASSED
+  Test Cases Summary: 4/4 (100.00%) PASSED
+------------------------------------------------------------
+
+
+command: /Users/sraghuna/.kantra/java-external-provider --port 62711 --name java
+http-client-1.test.yaml                                    8/8 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00120 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00010 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00020 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00110 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00130 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00170 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00080 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00100 1/1 PASSED
+------------------------------------------------------------
+  Rules Summary:      8/8 (100.00%) PASSED
+  Test Cases Summary: 8/8 (100.00%) PASSED
+------------------------------------------------------------
+
+
+command: /Users/sraghuna/.kantra/java-external-provider --port 62732 --name java
+http-client-2.test.yaml                                    1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00200 1/1 PASSED
+------------------------------------------------------------
+  Rules Summary:      1/1 (100.00%) PASSED
+  Test Cases Summary: 1/1 (100.00%) PASSED
+------------------------------------------------------------
+
+
+command: /Users/sraghuna/.kantra/java-external-provider --port 62766 --name java
+http-entity.test.yaml                                      3/3 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00140 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00150 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00160 1/1 PASSED
+------------------------------------------------------------
+  Rules Summary:      3/3 (100.00%) PASSED
+  Test Cases Summary: 3/3 (100.00%) PASSED
+------------------------------------------------------------
+
+
+command: /Users/sraghuna/.kantra/java-external-provider --port 62773 --name java
+http-response.test.yaml                                    1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00180 1/1 PASSED
+------------------------------------------------------------
+  Rules Summary:      1/1 (100.00%) PASSED
+  Test Cases Summary: 1/1 (100.00%) PASSED
+------------------------------------------------------------
+
+
+command: /Users/sraghuna/.kantra/java-external-provider --port 62792 --name java
+ssl-tls.test.yaml                                          2/2 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00040 1/1 PASSED
+  httpcomponents-client-4-to-httpcomponents-client-5-00030 1/1 PASSED
+------------------------------------------------------------
+  Rules Summary:      2/2 (100.00%) PASSED
+  Test Cases Summary: 2/2 (100.00%) PASSED
+------------------------------------------------------------
+

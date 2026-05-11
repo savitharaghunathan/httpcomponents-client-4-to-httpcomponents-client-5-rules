@@ -1,0 +1,61 @@
+rulesPath: ../rules/http-client.yaml
+providers:
+    - name: java
+      dataPath: ./data/http-client-1
+tests:
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00010
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00020
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00080
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00100
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00110
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00120
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00130
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00170
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1

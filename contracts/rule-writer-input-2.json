@@ -1,0 +1,10 @@
+{
+  "guide": "output/httpcomponents-client-4-to-httpcomponents-client-5-20260511-134920/guide.md",
+  "source": "httpcomponents-client-4",
+  "target": "httpcomponents-client-5",
+  "rules_dir": "output/httpcomponents-client-4-to-httpcomponents-client-5-20260511-134920/rules",
+  "sections": [
+    {"heading": "[]()Preparation steps", "start_line": 5, "end_line": 93}
+  ],
+  "output_file": "output/httpcomponents-client-4-to-httpcomponents-client-5-20260511-134920/patterns-2.json"
+}

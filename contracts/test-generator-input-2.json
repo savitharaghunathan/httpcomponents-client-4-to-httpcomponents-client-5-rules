@@ -1,0 +1,9 @@
+{
+  "rules_dir": "output/httpcomponents-client-4-to-httpcomponents-client-5-20260511-134920/rules",
+  "tests_dir": "output/httpcomponents-client-4-to-httpcomponents-client-5-20260511-134920/tests",
+  "groups": [
+    {"name": "http-entity", "data_dir": "data/http-entity", "rule_ids": ["httpcomponents-client-4-to-httpcomponents-client-5-00140", "httpcomponents-client-4-to-httpcomponents-client-5-00150", "httpcomponents-client-4-to-httpcomponents-client-5-00160"], "files": [{"path": "data/http-entity/pom.xml", "file_type": "xml", "purpose": "build"}, {"path": "data/http-entity/src/main/java/com/example/Application.java", "file_type": "java", "purpose": "source"}]},
+    {"name": "http-response", "data_dir": "data/http-response", "rule_ids": ["httpcomponents-client-4-to-httpcomponents-client-5-00180"], "files": [{"path": "data/http-response/pom.xml", "file_type": "xml", "purpose": "build"}, {"path": "data/http-response/src/main/java/com/example/Application.java", "file_type": "java", "purpose": "source"}]},
+    {"name": "ssl-tls", "data_dir": "data/ssl-tls", "rule_ids": ["httpcomponents-client-4-to-httpcomponents-client-5-00030", "httpcomponents-client-4-to-httpcomponents-client-5-00040"], "files": [{"path": "data/ssl-tls/pom.xml", "file_type": "xml", "purpose": "build"}, {"path": "data/ssl-tls/src/main/java/com/example/Application.java", "file_type": "java", "purpose": "source"}]}
+  ]
+}

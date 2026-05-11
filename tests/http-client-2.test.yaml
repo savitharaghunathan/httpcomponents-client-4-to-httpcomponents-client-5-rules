@@ -1,0 +1,12 @@
+rulesPath: ../rules/http-client.yaml
+providers:
+    - name: java
+      dataPath: ./data/http-client-2
+tests:
+    - ruleID: httpcomponents-client-4-to-httpcomponents-client-5-00200
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
