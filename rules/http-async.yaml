@@ -1,0 +1,79 @@
+- ruleID: httpclient-4-to-httpclient-5-00240
+  description: PoolingHttpClientConnectionManager is replaced by PoolingAsyncClientConnectionManager for HttpClient 5.x async APIs. The async connection manager uses different TLS/SSL configuration (ClientTlsStrategyBuilder instead of SSLConnectionSocketFactory) and does not support SocketConfig due to differences in the I/O model.
+  category: mandatory
+  effort: 7
+  labels:
+    - konveyor.io/source=httpclient-4
+    - konveyor.io/target=httpclient-5
+    - konveyor.io/generated-by=ai-rule-gen
+  message: |-
+    Replace `PoolingHttpClientConnectionManager` with `PoolingAsyncClientConnectionManager` for HttpClient 5.x async APIs. The async connection manager requires different configuration:
+
+    - TLS/SSL is configured via `ClientTlsStrategyBuilder` with `.buildAsync()` instead of `SSLConnectionSocketFactory`
+    - `SocketConfig` is not supported; use `IOReactorConfig.setSoTimeout()` instead
+    - Use `PoolingAsyncClientConnectionManagerBuilder.create()` to build the connection manager
+
+    ```java
+    // Before (HttpClient 4.x)
+    PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+
+    // After (HttpClient 5.x async)
+    PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create()
+        .setTlsStrategy(ClientTlsStrategyBuilder.create()
+                .setSslContext(SSLContexts.createSystemDefault())
+                .buildAsync())
+        .build();
+    ```
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-async-simple.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.impl.conn.PoolingHttpClientConnectionManager
+        location: IMPORT
+- ruleID: httpclient-4-to-httpclient-5-00250
+  description: 'CloseableHttpClient is replaced by CloseableHttpAsyncClient for HttpClient 5.x async APIs. The async client has a fundamentally different execution model: it must be started before use, requests return Future objects, and results are delivered via FutureCallback.'
+  category: mandatory
+  effort: 7
+  labels:
+    - konveyor.io/source=httpclient-4
+    - konveyor.io/target=httpclient-5
+    - konveyor.io/generated-by=ai-rule-gen
+  message: |-
+    Replace `CloseableHttpClient` with `CloseableHttpAsyncClient` for HttpClient 5.x async APIs. Key differences:
+
+    - The async client must be started with `client.start()` before executing requests
+    - Request execution returns `Future<SimpleHttpResponse>` and uses `FutureCallback` for async result handling
+    - Use `HttpAsyncClients.custom()` builder with `IOReactorConfig` instead of `HttpClients.custom()`
+    - Close with `client.close(CloseMode.GRACEFUL)` for clean shutdown
+
+    ```java
+    // Before (HttpClient 4.x)
+    CloseableHttpClient client = HttpClients.custom()
+        .setConnectionManager(cm)
+        .build();
+    HttpResponse response = client.execute(request);
+    client.close();
+
+    // After (HttpClient 5.x async)
+    CloseableHttpAsyncClient client = HttpAsyncClients.custom()
+        .setConnectionManager(cm)
+        .setIOReactorConfig(IOReactorConfig.custom()
+                .setSoTimeout(Timeout.ofMinutes(1))
+                .build())
+        .build();
+    client.start();
+    Future<?> future = client.execute(request, new FutureCallback<SimpleHttpResponse>() {
+        @Override public void completed(SimpleHttpResponse response) { /* handle */ }
+        @Override public void failed(Exception ex) { /* handle */ }
+        @Override public void cancelled() { /* handle */ }
+    });
+    client.close(CloseMode.GRACEFUL);
+    ```
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-async-simple.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.impl.client.CloseableHttpClient
+        location: IMPORT

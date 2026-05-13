@@ -1,0 +1,16 @@
+- ruleID: httpclient-4-to-httpclient-5-00010
+  description: Apache HttpClient 4.x (org.apache.httpcomponents:httpclient) has been replaced by HttpClient 5.x (org.apache.httpcomponents.client5:httpclient5). The old artifact must be removed and replaced with the new one.
+  category: mandatory
+  effort: 5
+  labels:
+    - konveyor.io/source=httpclient-4
+    - konveyor.io/target=httpclient-5
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Apache HttpClient 4.x (`org.apache.httpcomponents:httpclient`) has been replaced by HttpClient 5.x (`org.apache.httpcomponents.client5:httpclient5`). Remove the old dependency and add the new one. HttpClient 5.x uses a different package namespace (`org.apache.hc.httpclient5`) and has API changes related to SSL/TLS configuration, timeout handling, and response processing.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
+      title: Migration Documentation
+  when:
+    java.dependency:
+        name: org.apache.httpcomponents.httpclient
+        lowerbound: 0.0.0

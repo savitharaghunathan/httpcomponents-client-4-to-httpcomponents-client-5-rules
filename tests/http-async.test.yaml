@@ -1,0 +1,19 @@
+rulesPath: ../rules/http-async.yaml
+providers:
+    - name: java
+      dataPath: ./data/http-async
+tests:
+    - ruleID: httpclient-4-to-httpclient-5-00240
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient-4-to-httpclient-5-00250
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
