@@ -23,7 +23,7 @@
     </dependency>
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.dependency:
@@ -48,7 +48,7 @@
     import org.apache.hc.core5.http.HttpEntityContainer;
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -77,7 +77,7 @@
     HttpClientContext context = HttpClientContext.create();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -102,7 +102,7 @@
     import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -130,7 +130,7 @@
     client.execute(httpPost, response -> { ... });
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -156,11 +156,11 @@
     HttpCoreContext.getSSLSession()
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.impl.conn.ManagedHttpClientConnection
+        pattern: org.apache.http.conn.ManagedHttpClientConnection
         location: IMPORT
 - ruleID: httpclient-4-to-httpclient-5-00140
   description: HttpMessage.getAllHeaders() renamed to MessageHeaders.getHeaders() in HttpClient 5.x.
@@ -181,7 +181,7 @@
     Header[] headers = response.getHeaders();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -206,7 +206,7 @@
     RequestLine line = new RequestLine(request);
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -231,7 +231,7 @@
     HttpClients.custom().setRetryStrategy(myRetryStrategy);
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -256,7 +256,7 @@
     connectionManager.closeExpired();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -281,7 +281,7 @@
     connectionManager.closeIdle(TimeValue.ofSeconds(30));
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -306,7 +306,7 @@
     HttpClients.custom().addExecInterceptorFirst("logging", loggingInterceptor);
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -336,7 +336,7 @@
         .build();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -362,7 +362,7 @@
     HttpHost target = clientContext.getHttpRoute().getTargetHost();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     builtin.filecontent:
@@ -389,7 +389,7 @@
     URI normalized = new URIBuilder(uri).optimize().build();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -417,7 +417,7 @@
     URI optimized = new URIBuilder(uri).optimize().build();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
       title: Migration Documentation
   when:
     builtin.filecontent:

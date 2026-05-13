@@ -13,7 +13,7 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.HttpResponse;
 
 // Rule: httpclient-4-to-httpclient-5-00130
-import org.apache.http.impl.conn.ManagedHttpClientConnection;
+import org.apache.http.conn.ManagedHttpClientConnection;
 
 import org.apache.http.Header;
 import org.apache.http.HttpMessage;

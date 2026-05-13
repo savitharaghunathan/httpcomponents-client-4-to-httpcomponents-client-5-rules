@@ -8,7 +8,7 @@
     - konveyor.io/generated-by=ai-rule-gen
   message: The `org.apache.http` package namespace has been replaced in HttpClient 5.x. Remove old `org.apache.http` imports and re-import classes from `org.apache.hc.httpclient5` (for client classes like `HttpClients`, `HttpGet`, `HttpPost`) or `org.apache.hc.core5` (for core classes like `HttpEntity`, `ContentType`). Most class names resolve automatically in the new namespace, but some classes have been renamed.
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -41,7 +41,7 @@
         .build()
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -72,7 +72,7 @@
     }
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -107,7 +107,7 @@
 
     Note: HttpClient 5.0 treats zero TTL as connections not meant to be reused, unlike 4.x where zero meant unlimited.
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -140,7 +140,7 @@
 
     Note: Connect timeout has moved from `RequestConfig` to `ConnectionConfig` and now uses the `Timeout` class instead of raw milliseconds.
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -173,7 +173,7 @@
 
     Note: Socket timeout has moved from `RequestConfig` to `ConnectionConfig` and now uses the `Timeout` class instead of raw milliseconds.
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html
       title: Migration Documentation
   when:
     java.referenced:

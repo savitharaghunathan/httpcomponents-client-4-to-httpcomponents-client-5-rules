@@ -25,7 +25,7 @@
         .build();
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-async-simple.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-async-simple.html
       title: Migration Documentation
   when:
     java.referenced:
@@ -71,7 +71,7 @@
     client.close(CloseMode.GRACEFUL);
     ```
   links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-async-simple.html
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-async-simple.html
       title: Migration Documentation
   when:
     java.referenced:
