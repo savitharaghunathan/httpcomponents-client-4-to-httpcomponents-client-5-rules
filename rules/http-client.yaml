@@ -248,7 +248,7 @@
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.conn.HttpClientConnectionManager.closeExpiredConnections
+        pattern: closeExpiredConnections
         location: METHOD_CALL
 - ruleID: httpclient4-to-httpclient5-00090
   description: closeIdleConnections() renamed to closeIdle() in HttpClient 5.x
@@ -277,7 +277,7 @@
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.conn.HttpClientConnectionManager.closeIdleConnections
+        pattern: closeIdleConnections
         location: METHOD_CALL
 - ruleID: httpclient4-to-httpclient5-00100
   description: addInterceptorLast() replaced by addExecInterceptorFirst() in HttpClient 5.x
@@ -306,7 +306,7 @@
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.impl.client.HttpClientBuilder.addInterceptorLast
+        pattern: addInterceptorLast
         location: METHOD_CALL
 - ruleID: httpclient4-to-httpclient5-00110
   description: setDefaultSocketConfig() moved from HttpClientBuilder to PoolingHttpClientConnectionManagerBuilder
@@ -344,7 +344,7 @@
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.impl.client.HttpClientBuilder.setDefaultSocketConfig
+        pattern: setDefaultSocketConfig
         location: METHOD_CALL
 - ruleID: httpclient4-to-httpclient5-00120
   description: setRetryHandler() renamed to setRetryStrategy() in HttpClient 5.x
@@ -373,7 +373,7 @@
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.impl.client.HttpClientBuilder.setRetryHandler
+        pattern: setRetryHandler
         location: METHOD_CALL
 - ruleID: httpclient4-to-httpclient5-00130
   description: getAllHeaders() renamed to getHeaders() on MessageHeaders in HttpClient 5.x
@@ -402,7 +402,7 @@
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.HttpMessage.getAllHeaders
+        pattern: getAllHeaders
         location: METHOD_CALL
 - ruleID: httpclient4-to-httpclient5-00140
   description: getRequestLine() removed in HttpClient 5.x; use new RequestLine(request)
@@ -610,7 +610,7 @@
       title: Migration Documentation
   when:
     builtin.filecontent:
-        pattern: RequestConfig\.custom\(\).*\.set(Connect|Socket)Timeout
+        pattern: \.set(Connect|Socket)Timeout\(
         filePattern: .*\.java
 - ruleID: httpclient4-to-httpclient5-00240
   description: setConnectionTimeToLive() moved from HttpClientBuilder to ConnectionConfig.setTimeToLive()
@@ -648,5 +648,5 @@
       title: Migration Documentation
   when:
     java.referenced:
-        pattern: org.apache.http.impl.client.HttpClientBuilder.setConnectionTimeToLive
+        pattern: setConnectionTimeToLive
         location: METHOD_CALL
