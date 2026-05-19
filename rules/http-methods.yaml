@@ -1,0 +1,66 @@
+- ruleID: httpclient-4-to-httpclient-5-00110
+  description: HttpEntityEnclosingRequest replaced by HttpEntityContainer in HttpClient 5.x
+  category: mandatory
+  effort: 5
+  labels:
+    - konveyor.io/source=httpclient-4
+    - konveyor.io/target=httpclient-5
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Replace `HttpEntityEnclosingRequest` with `HttpEntityContainer`. In HttpClient 5.x, any HTTP method can enclose a request entity, even if it violates the semantics of the method. The `HttpEntityEnclosingRequest` interface has been replaced by `HttpEntityContainer`.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.HttpEntityEnclosingRequest
+        location: IMPORT
+- ruleID: httpclient-4-to-httpclient-5-00210
+  description: HttpRequest.getRequestLine() removed; use new RequestLine(request) in HttpClient 5.x
+  category: mandatory
+  effort: 3
+  labels:
+    - konveyor.io/source=httpclient-4
+    - konveyor.io/target=httpclient-5
+    - konveyor.io/generated-by=ai-rule-gen
+  message: |-
+    Replace `request.getRequestLine()` with `new RequestLine(request)`. The `getRequestLine()` method has been removed from `HttpRequest` in HttpClient 5.x:
+
+    ```java
+    // Before
+    RequestLine line = request.getRequestLine();
+
+    // After
+    RequestLine line = new RequestLine(request);
+    ```
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: getRequestLine
+        location: METHOD_CALL
+- ruleID: httpclient-4-to-httpclient-5-00220
+  description: HttpRequestBase renamed to HttpUriRequestBase in HttpClient 5.x
+  category: mandatory
+  effort: 3
+  labels:
+    - konveyor.io/source=httpclient-4
+    - konveyor.io/target=httpclient-5
+    - konveyor.io/generated-by=ai-rule-gen
+  message: |-
+    Replace `HttpRequestBase` with `HttpUriRequestBase`. The class was renamed in HttpClient 5.x:
+
+    ```java
+    // Before
+    import org.apache.http.client.methods.HttpRequestBase;
+
+    // After
+    import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
+    ```
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.client.methods.HttpRequestBase
+        location: IMPORT

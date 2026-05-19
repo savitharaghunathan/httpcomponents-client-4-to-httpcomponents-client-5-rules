@@ -1,0 +1,10 @@
+rulesPath: ../rules/uri.yaml
+providers:
+    - name: builtin
+      dataPath: ./data/uri
+tests:
+    - ruleID: httpclient-4-to-httpclient-5-00120
+      testCases:
+        - name: tc-1
+          hasIncidents:
+            atLeast: 1

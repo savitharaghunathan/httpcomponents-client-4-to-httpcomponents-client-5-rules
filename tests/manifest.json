@@ -2,142 +2,236 @@
   "language": "java",
   "groups": [
     {
-      "name": "async",
-      "data_dir": "data/async",
-      "test_file": "async.test.yaml",
-      "rule_count": 3,
+      "name": "connection",
+      "data_dir": "data/connection",
+      "test_file": "connection.test.yaml",
+      "rule_count": 7,
       "providers": [
         "java"
       ],
       "files": [
         {
-          "path": "data/async/pom.xml",
+          "path": "data/connection/pom.xml",
           "file_type": "xml",
           "purpose": "build"
         },
         {
-          "path": "data/async/src/main/java/com/example/Application.java",
+          "path": "data/connection/src/main/java/com/example/Application.java",
           "file_type": "java",
           "purpose": "source"
         }
       ],
       "rule_ids": [
-        "httpclient4-to-httpclient5-00210",
-        "httpclient4-to-httpclient5-00220",
-        "httpclient4-to-httpclient5-00230"
+        "httpclient-4-to-httpclient-5-00070",
+        "httpclient-4-to-httpclient-5-00080",
+        "httpclient-4-to-httpclient-5-00090",
+        "httpclient-4-to-httpclient-5-00140",
+        "httpclient-4-to-httpclient-5-00150",
+        "httpclient-4-to-httpclient-5-00240",
+        "httpclient-4-to-httpclient-5-00260"
       ]
     },
     {
-      "name": "http-client-java-1",
-      "data_dir": "data/http-client-java-1",
-      "test_file": "http-client-java-1.test.yaml",
+      "name": "http-client",
+      "data_dir": "data/http-client",
+      "test_file": "http-client.test.yaml",
       "rule_count": 8,
       "providers": [
         "java"
       ],
       "files": [
         {
-          "path": "data/http-client-java-1/pom.xml",
+          "path": "data/http-client/pom.xml",
           "file_type": "xml",
           "purpose": "build"
         },
         {
-          "path": "data/http-client-java-1/src/main/java/com/example/Application.java",
+          "path": "data/http-client/src/main/java/com/example/Application.java",
           "file_type": "java",
           "purpose": "source"
         }
       ],
       "rule_ids": [
-        "httpclient4-to-httpclient5-00010",
-        "httpclient4-to-httpclient5-00020",
-        "httpclient4-to-httpclient5-00030",
-        "httpclient4-to-httpclient5-00040",
-        "httpclient4-to-httpclient5-00050",
-        "httpclient4-to-httpclient5-00060",
-        "httpclient4-to-httpclient5-00070",
-        "httpclient4-to-httpclient5-00080"
+        "httpclient-4-to-httpclient-5-00010",
+        "httpclient-4-to-httpclient-5-00020",
+        "httpclient-4-to-httpclient-5-00030",
+        "httpclient-4-to-httpclient-5-00040",
+        "httpclient-4-to-httpclient-5-00050",
+        "httpclient-4-to-httpclient-5-00060",
+        "httpclient-4-to-httpclient-5-00170",
+        "httpclient-4-to-httpclient-5-00250"
       ]
     },
     {
-      "name": "http-client-java-2",
-      "data_dir": "data/http-client-java-2",
-      "test_file": "http-client-java-2.test.yaml",
-      "rule_count": 8,
-      "providers": [
-        "java"
-      ],
-      "files": [
-        {
-          "path": "data/http-client-java-2/pom.xml",
-          "file_type": "xml",
-          "purpose": "build"
-        },
-        {
-          "path": "data/http-client-java-2/src/main/java/com/example/Application.java",
-          "file_type": "java",
-          "purpose": "source"
-        }
-      ],
-      "rule_ids": [
-        "httpclient4-to-httpclient5-00090",
-        "httpclient4-to-httpclient5-00100",
-        "httpclient4-to-httpclient5-00110",
-        "httpclient4-to-httpclient5-00120",
-        "httpclient4-to-httpclient5-00130",
-        "httpclient4-to-httpclient5-00140",
-        "httpclient4-to-httpclient5-00150",
-        "httpclient4-to-httpclient5-00180"
-      ]
-    },
-    {
-      "name": "http-client-java-3",
-      "data_dir": "data/http-client-java-3",
-      "test_file": "http-client-java-3.test.yaml",
+      "name": "http-context-java",
+      "data_dir": "data/http-context-java",
+      "test_file": "http-context-java.test.yaml",
       "rule_count": 1,
       "providers": [
         "java"
       ],
       "files": [
         {
-          "path": "data/http-client-java-3/pom.xml",
+          "path": "data/http-context-java/pom.xml",
           "file_type": "xml",
           "purpose": "build"
         },
         {
-          "path": "data/http-client-java-3/src/main/java/com/example/Application.java",
+          "path": "data/http-context-java/src/main/java/com/example/Application.java",
           "file_type": "java",
           "purpose": "source"
         }
       ],
       "rule_ids": [
-        "httpclient4-to-httpclient5-00240"
+        "httpclient-4-to-httpclient-5-00130"
       ]
     },
     {
-      "name": "http-client-builtin",
-      "data_dir": "data/http-client-builtin",
-      "test_file": "http-client-builtin.test.yaml",
-      "rule_count": 4,
+      "name": "http-context-builtin",
+      "data_dir": "data/http-context-builtin",
+      "test_file": "http-context-builtin.test.yaml",
+      "rule_count": 1,
       "providers": [
         "builtin"
       ],
       "files": [
         {
-          "path": "data/http-client-builtin/pom.xml",
+          "path": "data/http-context-builtin/pom.xml",
           "file_type": "xml",
           "purpose": "build"
         },
         {
-          "path": "data/http-client-builtin/src/main/java/com/example/Application.java",
+          "path": "data/http-context-builtin/src/main/java/com/example/Application.java",
           "file_type": "java",
           "purpose": "source"
         }
       ],
       "rule_ids": [
-        "httpclient4-to-httpclient5-00160",
-        "httpclient4-to-httpclient5-00170",
-        "httpclient4-to-httpclient5-00190",
-        "httpclient4-to-httpclient5-00200"
+        "httpclient-4-to-httpclient-5-00180"
+      ]
+    },
+    {
+      "name": "http-methods",
+      "data_dir": "data/http-methods",
+      "test_file": "http-methods.test.yaml",
+      "rule_count": 3,
+      "providers": [
+        "java"
+      ],
+      "files": [
+        {
+          "path": "data/http-methods/pom.xml",
+          "file_type": "xml",
+          "purpose": "build"
+        },
+        {
+          "path": "data/http-methods/src/main/java/com/example/Application.java",
+          "file_type": "java",
+          "purpose": "source"
+        }
+      ],
+      "rule_ids": [
+        "httpclient-4-to-httpclient-5-00110",
+        "httpclient-4-to-httpclient-5-00210",
+        "httpclient-4-to-httpclient-5-00220"
+      ]
+    },
+    {
+      "name": "http-response",
+      "data_dir": "data/http-response",
+      "test_file": "http-response.test.yaml",
+      "rule_count": 2,
+      "providers": [
+        "java"
+      ],
+      "files": [
+        {
+          "path": "data/http-response/pom.xml",
+          "file_type": "xml",
+          "purpose": "build"
+        },
+        {
+          "path": "data/http-response/src/main/java/com/example/Application.java",
+          "file_type": "java",
+          "purpose": "source"
+        }
+      ],
+      "rule_ids": [
+        "httpclient-4-to-httpclient-5-00200",
+        "httpclient-4-to-httpclient-5-00230"
+      ]
+    },
+    {
+      "name": "interceptors",
+      "data_dir": "data/interceptors",
+      "test_file": "interceptors.test.yaml",
+      "rule_count": 1,
+      "providers": [
+        "java"
+      ],
+      "files": [
+        {
+          "path": "data/interceptors/pom.xml",
+          "file_type": "xml",
+          "purpose": "build"
+        },
+        {
+          "path": "data/interceptors/src/main/java/com/example/Application.java",
+          "file_type": "java",
+          "purpose": "source"
+        }
+      ],
+      "rule_ids": [
+        "httpclient-4-to-httpclient-5-00160"
+      ]
+    },
+    {
+      "name": "ssl",
+      "data_dir": "data/ssl",
+      "test_file": "ssl.test.yaml",
+      "rule_count": 2,
+      "providers": [
+        "java"
+      ],
+      "files": [
+        {
+          "path": "data/ssl/pom.xml",
+          "file_type": "xml",
+          "purpose": "build"
+        },
+        {
+          "path": "data/ssl/src/main/java/com/example/Application.java",
+          "file_type": "java",
+          "purpose": "source"
+        }
+      ],
+      "rule_ids": [
+        "httpclient-4-to-httpclient-5-00100",
+        "httpclient-4-to-httpclient-5-00190"
+      ]
+    },
+    {
+      "name": "uri",
+      "data_dir": "data/uri",
+      "test_file": "uri.test.yaml",
+      "rule_count": 1,
+      "providers": [
+        "builtin"
+      ],
+      "files": [
+        {
+          "path": "data/uri/pom.xml",
+          "file_type": "xml",
+          "purpose": "build"
+        },
+        {
+          "path": "data/uri/src/main/java/com/example/Application.java",
+          "file_type": "java",
+          "purpose": "source"
+        }
+      ],
+      "rule_ids": [
+        "httpclient-4-to-httpclient-5-00120"
       ]
     }
   ]

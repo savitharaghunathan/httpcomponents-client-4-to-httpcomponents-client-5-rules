@@ -1,0 +1,10 @@
+rulesPath: ../rules/http-context.yaml
+providers:
+    - name: builtin
+      dataPath: ./data/http-context-builtin
+tests:
+    - ruleID: httpclient-4-to-httpclient-5-00180
+      testCases:
+        - name: tc-1
+          hasIncidents:
+            atLeast: 1

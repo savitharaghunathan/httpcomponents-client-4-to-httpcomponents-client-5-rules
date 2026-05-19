@@ -1,0 +1,12 @@
+rulesPath: ../rules/http-context.yaml
+providers:
+    - name: java
+      dataPath: ./data/http-context-java
+tests:
+    - ruleID: httpclient-4-to-httpclient-5-00130
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
