@@ -1,189 +1,31 @@
-- ruleID: httpclient-4-to-httpclient-5-00070
-  description: setConnectTimeout() moved from RequestConfig to ConnectionConfig and now takes Timeout type
+- ruleID: httpclient4-to-httpclient5-00260
+  description: setDefaultSocketConfig() moved from HttpClientBuilder to connection manager builder
   category: mandatory
   effort: 5
   labels:
-    - konveyor.io/source=httpclient-4
-    - konveyor.io/target=httpclient-5
+    - konveyor.io/source=httpclient4
+    - konveyor.io/target=httpclient5
     - konveyor.io/generated-by=ai-rule-gen
   message: |-
-    In HttpClient 5.x, `setConnectTimeout()` has moved from `RequestConfig.Builder` to `ConnectionConfig.Builder` and now takes a `Timeout` object instead of an int. Use `ConnectionConfig.custom().setConnectTimeout(Timeout.ofMinutes(1))` and set the `ConnectionConfig` on your connection manager.
+    Move `setDefaultSocketConfig()` from `HttpClients.custom()` to `PoolingHttpClientConnectionManagerBuilder.create()` or `BasicHttpClientConnectionManager.setSocketConfig()`. In HttpClient 5.x, socket configuration is set on the connection manager, not directly on the HttpClient builder.
 
+    ## Before
     ```java
-    // Before (4.x)
-    RequestConfig.custom()
-        .setConnectTimeout(60000)
-
-    // After (5.x)
-    ConnectionConfig.custom()
-        .setConnectTimeout(Timeout.ofMinutes(1))
-    ```
-  links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
-      title: Migration Documentation
-  when:
-    java.referenced:
-        pattern: setConnectTimeout
-        location: METHOD_CALL
-- ruleID: httpclient-4-to-httpclient-5-00080
-  description: setSocketTimeout() moved from RequestConfig to ConnectionConfig and now takes Timeout type
-  category: mandatory
-  effort: 5
-  labels:
-    - konveyor.io/source=httpclient-4
-    - konveyor.io/target=httpclient-5
-    - konveyor.io/generated-by=ai-rule-gen
-  message: |-
-    In HttpClient 5.x, `setSocketTimeout()` has moved from `RequestConfig.Builder` to `ConnectionConfig.Builder` and now takes a `Timeout` object instead of an int. Use `ConnectionConfig.custom().setSocketTimeout(Timeout.ofMinutes(1))` and set the `ConnectionConfig` on your connection manager.
-
-    ```java
-    // Before (4.x)
-    RequestConfig.custom()
-        .setSocketTimeout(60000)
-
-    // After (5.x)
-    ConnectionConfig.custom()
-        .setSocketTimeout(Timeout.ofMinutes(1))
-    ```
-  links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
-      title: Migration Documentation
-  when:
-    java.referenced:
-        pattern: setSocketTimeout
-        location: METHOD_CALL
-- ruleID: httpclient-4-to-httpclient-5-00090
-  description: setSoTimeout() now takes Timeout type instead of int milliseconds in HttpClient 5.x
-  category: mandatory
-  effort: 3
-  labels:
-    - konveyor.io/source=httpclient-4
-    - konveyor.io/target=httpclient-5
-    - konveyor.io/generated-by=ai-rule-gen
-  message: |-
-    In HttpClient 5.x, `setSoTimeout()` now takes a `Timeout` object instead of an int. Use `Timeout.ofMinutes(1)` or `Timeout.ofMilliseconds(60000)` instead of raw integers.
-
-    ```java
-    // Before (4.x)
-    SocketConfig.custom()
-        .setSoTimeout(60000)
-
-    // After (5.x)
-    SocketConfig.custom()
-        .setSoTimeout(Timeout.ofMinutes(1))
-    ```
-  links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/preparation.html
-      title: Migration Documentation
-  when:
-    java.referenced:
-        pattern: setSoTimeout
-        location: METHOD_CALL
-- ruleID: httpclient-4-to-httpclient-5-00140
-  description: closeExpiredConnections() renamed to closeExpired() in HttpClient 5.x
-  category: mandatory
-  effort: 1
-  labels:
-    - konveyor.io/source=httpclient-4
-    - konveyor.io/target=httpclient-5
-    - konveyor.io/generated-by=ai-rule-gen
-  message: |-
-    Replace `closeExpiredConnections()` with `closeExpired()`. The method moved from `HttpClientConnectionManager` to the `ConnPoolControl` interface:
-
-    ```java
-    // Before
-    connectionManager.closeExpiredConnections();
-
-    // After
-    connectionManager.closeExpired();
-    ```
-  links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
-      title: Migration Documentation
-  when:
-    java.referenced:
-        pattern: closeExpiredConnections
-        location: METHOD_CALL
-- ruleID: httpclient-4-to-httpclient-5-00150
-  description: closeIdleConnections() renamed to closeIdle() in HttpClient 5.x
-  category: mandatory
-  effort: 1
-  labels:
-    - konveyor.io/source=httpclient-4
-    - konveyor.io/target=httpclient-5
-    - konveyor.io/generated-by=ai-rule-gen
-  message: |-
-    Replace `closeIdleConnections()` with `closeIdle()`. The method moved from `HttpClientConnectionManager` to the `ConnPoolControl` interface:
-
-    ```java
-    // Before
-    connectionManager.closeIdleConnections(30, TimeUnit.SECONDS);
-
-    // After
-    connectionManager.closeIdle(TimeValue.ofSeconds(30));
-    ```
-  links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html
-      title: Migration Documentation
-  when:
-    java.referenced:
-        pattern: closeIdleConnections
-        location: METHOD_CALL
-- ruleID: httpclient-4-to-httpclient-5-00240
-  description: PoolingHttpClientConnectionManager replaced by PoolingAsyncClientConnectionManager for async APIs
-  category: mandatory
-  effort: 7
-  labels:
-    - konveyor.io/source=httpclient-4
-    - konveyor.io/target=httpclient-5
-    - konveyor.io/generated-by=ai-rule-gen
-  message: |-
-    For async migration, replace `PoolingHttpClientConnectionManager` with `PoolingAsyncClientConnectionManager`. Use `PoolingAsyncClientConnectionManagerBuilder` to create it:
-
-    ```java
-    // Before
-    PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
-
-    // After
-    PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create()
-        .setTlsStrategy(ClientTlsStrategyBuilder.create()
-            .setSslContext(SSLContexts.createSystemDefault())
-            .setTlsVersions(TLS.V_1_3)
-            .build())
-        .build();
-    ```
-
-    Note: `PoolingAsyncClientConnectionManager` uses different TLS/SSL configuration and does not support `SocketConfig` due to differences in the I/O model.
-  links:
-    - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-async-simple.html
-      title: Migration Documentation
-  when:
-    java.referenced:
-        pattern: org.apache.http.impl.conn.PoolingHttpClientConnectionManager
-        location: IMPORT
-- ruleID: httpclient-4-to-httpclient-5-00260
-  description: setDefaultSocketConfig() moved from HttpClients.custom() to PoolingHttpClientConnectionManagerBuilder
-  category: mandatory
-  effort: 5
-  labels:
-    - konveyor.io/source=httpclient-4
-    - konveyor.io/target=httpclient-5
-    - konveyor.io/generated-by=ai-rule-gen
-  message: |-
-    Replace `HttpClients.custom().setDefaultSocketConfig(...)` with `PoolingHttpClientConnectionManagerBuilder.create().setDefaultSocketConfig(...)` or `BasicHttpClientConnectionManager.setSocketConfig(...)`. Socket configuration is now set on the connection manager, not the client builder:
-
-    ```java
-    // Before
     HttpClients.custom()
         .setDefaultSocketConfig(SocketConfig.custom()
             .setSoTimeout(60000)
             .build())
+        .build();
+    ```
 
-    // After
-    PoolingHttpClientConnectionManagerBuilder.create()
+    ## After
+    ```java
+    PoolingHttpClientConnectionManager cm = PoolingHttpClientConnectionManagerBuilder.create()
         .setDefaultSocketConfig(SocketConfig.custom()
             .setSoTimeout(Timeout.ofMinutes(1))
             .build())
+        .build();
+    HttpClients.custom().setConnectionManager(cm).build();
     ```
   links:
     - url: https://hc.apache.org/httpcomponents-client-5.4.x/migration-guide/migration-to-classic.html

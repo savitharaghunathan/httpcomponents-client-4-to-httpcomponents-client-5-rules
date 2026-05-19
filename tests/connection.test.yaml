@@ -3,49 +3,7 @@ providers:
     - name: java
       dataPath: ./data/connection
 tests:
-    - ruleID: httpclient-4-to-httpclient-5-00070
-      testCases:
-        - name: tc-1
-          analysisParams:
-            mode: source-only
-          hasIncidents:
-            atLeast: 1
-    - ruleID: httpclient-4-to-httpclient-5-00080
-      testCases:
-        - name: tc-1
-          analysisParams:
-            mode: source-only
-          hasIncidents:
-            atLeast: 1
-    - ruleID: httpclient-4-to-httpclient-5-00090
-      testCases:
-        - name: tc-1
-          analysisParams:
-            mode: source-only
-          hasIncidents:
-            atLeast: 1
-    - ruleID: httpclient-4-to-httpclient-5-00140
-      testCases:
-        - name: tc-1
-          analysisParams:
-            mode: source-only
-          hasIncidents:
-            atLeast: 1
-    - ruleID: httpclient-4-to-httpclient-5-00150
-      testCases:
-        - name: tc-1
-          analysisParams:
-            mode: source-only
-          hasIncidents:
-            atLeast: 1
-    - ruleID: httpclient-4-to-httpclient-5-00240
-      testCases:
-        - name: tc-1
-          analysisParams:
-            mode: source-only
-          hasIncidents:
-            atLeast: 1
-    - ruleID: httpclient-4-to-httpclient-5-00260
+    - ruleID: httpclient4-to-httpclient5-00260
       testCases:
         - name: tc-1
           analysisParams:

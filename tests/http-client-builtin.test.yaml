@@ -1,0 +1,25 @@
+rulesPath: ../rules/http-client.yaml
+providers:
+    - name: builtin
+      dataPath: ./data/http-client-builtin
+tests:
+    - ruleID: httpclient4-to-httpclient5-00220
+      testCases:
+        - name: tc-1
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00230
+      testCases:
+        - name: tc-1
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00240
+      testCases:
+        - name: tc-1
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00250
+      testCases:
+        - name: tc-1
+          hasIncidents:
+            atLeast: 1

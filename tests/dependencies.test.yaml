@@ -1,0 +1,10 @@
+rulesPath: ../rules/dependencies.yaml
+providers:
+    - name: java
+      dataPath: ./data/dependencies
+tests:
+    - ruleID: httpclient4-to-httpclient5-00090
+      testCases:
+        - name: tc-1
+          hasIncidents:
+            atLeast: 1

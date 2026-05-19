@@ -8,6 +8,7 @@
   <packaging>jar</packaging>
 
   <dependencies>
+    <!-- Rule: httpclient4-to-httpclient5-00090 -->
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
