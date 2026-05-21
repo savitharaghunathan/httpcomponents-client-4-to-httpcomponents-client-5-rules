@@ -1,0 +1,12 @@
+rulesPath: ../rules/async.yaml
+providers:
+    - name: java
+      dataPath: ./data/async
+tests:
+    - ruleID: httpclient4-to-httpclient5-00270
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1

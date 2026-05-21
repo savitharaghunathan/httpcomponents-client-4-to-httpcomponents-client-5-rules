@@ -1,0 +1,18 @@
+- ruleID: httpclient4-to-httpclient5-00270
+  description: Replace with CloseableHttpAsyncClient for async migration path
+  category: optional
+  effort: 7
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: 'For async migration, replace `CloseableHttpClient` with `CloseableHttpAsyncClient` from `HttpAsyncClients.custom()`. The async client requires: (1) `PoolingAsyncClientConnectionManager` instead of sync connection manager, (2) explicit `client.start()` before use, (3) `Future`/`FutureCallback` for request execution, (4) `client.close(CloseMode.GRACEFUL)` for shutdown. For HTTP/2-only scenarios, use `HttpAsyncClients.customHttp2()` instead.'
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-async-simple.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.impl.client.CloseableHttpClient
+        location: IMPORT

@@ -1,0 +1,19 @@
+rulesPath: ../rules/response.yaml
+providers:
+    - name: java
+      dataPath: ./data/response
+tests:
+    - ruleID: httpclient4-to-httpclient5-00080
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00320
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1

@@ -1,0 +1,36 @@
+- ruleID: httpclient4-to-httpclient5-00080
+  description: getStatusLine() removed; use getCode() for status code or new StatusLine(response)
+  category: mandatory
+  effort: 3
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: HTTP response messages in HttpClient 5.x no longer have a status line. Replace `response.getStatusLine().getStatusCode()` with `response.getCode()`. If you need the full status line representation, use `new StatusLine(response)`.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: getStatusLine
+        location: METHOD_CALL
+- ruleID: httpclient4-to-httpclient5-00320
+  description: HttpResponse moved to new package; use ClassicHttpResponse for entity access
+  category: mandatory
+  effort: 3
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Replace `org.apache.http.HttpResponse` with `org.apache.hc.core5.http.HttpResponse`. For classic API responses that need `getEntity()`, use `ClassicHttpResponse` from `org.apache.hc.core5.http.ClassicHttpResponse`. Note that `getStatusLine()` is removed — use `getCode()` instead.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.HttpResponse
+        location: IMPORT

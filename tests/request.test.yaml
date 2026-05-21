@@ -1,23 +1,30 @@
-rulesPath: ../rules/config.yaml
+rulesPath: ../rules/request.yaml
 providers:
     - name: java
-      dataPath: ./data/config
+      dataPath: ./data/request
 tests:
-    - ruleID: httpclient4-to-httpclient5-00230
+    - ruleID: httpclient4-to-httpclient5-00090
       testCases:
         - name: tc-1
           analysisParams:
             mode: source-only
           hasIncidents:
             atLeast: 1
-    - ruleID: httpclient4-to-httpclient5-00240
+    - ruleID: httpclient4-to-httpclient5-00170
       testCases:
         - name: tc-1
           analysisParams:
             mode: source-only
           hasIncidents:
             atLeast: 1
-    - ruleID: httpclient4-to-httpclient5-00260
+    - ruleID: httpclient4-to-httpclient5-00180
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00190
       testCases:
         - name: tc-1
           analysisParams:

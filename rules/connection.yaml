@@ -1,0 +1,72 @@
+- ruleID: httpclient4-to-httpclient5-00110
+  description: closeExpiredConnections() renamed to closeExpired() in ConnPoolControl
+  category: mandatory
+  effort: 1
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Replace `connectionManager.closeExpiredConnections()` with `connectionManager.closeExpired()`. The method was renamed in HttpClient 5.x under the `ConnPoolControl` interface.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: closeExpiredConnections
+        location: METHOD_CALL
+- ruleID: httpclient4-to-httpclient5-00120
+  description: closeIdleConnections() renamed to closeIdle() in ConnPoolControl
+  category: mandatory
+  effort: 1
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Replace `connectionManager.closeIdleConnections(timeout, unit)` with `connectionManager.closeIdle(TimeValue.of(timeout, unit))`. The method was renamed and now uses `TimeValue` instead of separate timeout and unit parameters.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: closeIdleConnections
+        location: METHOD_CALL
+- ruleID: httpclient4-to-httpclient5-00210
+  description: Use PoolingHttpClientConnectionManagerBuilder in 5.x
+  category: mandatory
+  effort: 5
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Replace direct `PoolingHttpClientConnectionManager` construction with `PoolingHttpClientConnectionManagerBuilder.create()...build()`. The builder pattern provides proper configuration of TLS strategy, socket config, connection pool policies, and connection config. For async APIs, use `PoolingAsyncClientConnectionManagerBuilder` instead.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.impl.conn.PoolingHttpClientConnectionManager
+        location: IMPORT
+- ruleID: httpclient4-to-httpclient5-00220
+  description: Zero TTL now means connections are not re-used (behavioral change in 5.x)
+  category: potential
+  effort: 3
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: As of HttpClient 5.0, setting connection TTL to zero is treated as an instruction that connections are not meant to be re-used. If you currently use `setConnectionTimeToLive(0, TimeUnit.MILLISECONDS)` intending unlimited TTL, change to a negative value or use `TimeValue.NEG_ONE_MILLISECOND`.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: setConnectionTimeToLive
+        location: METHOD_CALL

@@ -1,0 +1,54 @@
+- ruleID: httpclient4-to-httpclient5-00040
+  description: SSLConnectionSocketFactory replaced by ClientTlsStrategyBuilder in 5.x
+  category: mandatory
+  effort: 5
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Replace `SSLConnectionSocketFactory` with `ClientTlsStrategyBuilder`. Use `ClientTlsStrategyBuilder.create().setSslContext(sslContext).setTlsVersions(TLS.V_1_3).buildClassic()` for classic APIs or `.buildAsync()` for async APIs. HttpClient 5 automatically disables all SSL versions and weak TLS versions.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.conn.ssl.SSLConnectionSocketFactory
+        location: IMPORT
+- ruleID: httpclient4-to-httpclient5-00160
+  description: ManagedHttpClientConnection SSL session access simplified in 5.x
+  category: mandatory
+  effort: 3
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: Replace `((ManagedHttpClientConnection) context.getAttribute(HttpCoreContext.HTTP_CONNECTION)).getSSLSession()` with `((HttpCoreContext) context).getSSLSession()`. HttpClient 5.x provides a direct method for SSL session retrieval.
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: org.apache.http.conn.ManagedHttpClientConnection
+        location: IMPORT
+- ruleID: httpclient4-to-httpclient5-00250
+  description: setSSLSocketFactory() moved to connection manager builder in 5.x
+  category: mandatory
+  effort: 5
+  labels:
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client
+    - konveyor.io/generated-by=ai-rule-gen
+  message: 'Replace `HttpClients.custom().setSSLSocketFactory(sslSocketFactory)` with TLS strategy on the connection manager builder: `PoolingHttpClientConnectionManagerBuilder.create().setTlsSocketStrategy(ClientTlsStrategyBuilder.create().setSslContext(sslContext).setTlsVersions(TLS.V_1_3).buildClassic())`.'
+  links:
+    - url: https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/migration-to-classic.html
+      title: Migration Documentation
+  when:
+    java.referenced:
+        pattern: setSSLSocketFactory
+        location: METHOD_CALL

@@ -1,5 +1,7 @@
-name: httpcomponents-client-5/httpcomponents-client-4
-description: Rules for migrating from httpcomponents-client-4 to httpcomponents-client-5
+name: httpclient5/httpclient4
+description: Rules for migrating from httpclient4 to httpclient5
 labels:
-    - konveyor.io/source=httpcomponents-client-4
-    - konveyor.io/target=httpcomponents-client-5
+    - konveyor.io/source=httpclient4
+    - konveyor.io/source=httpcomponents-client
+    - konveyor.io/target=httpclient5
+    - konveyor.io/target=httpcomponents-client

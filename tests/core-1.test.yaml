@@ -1,0 +1,61 @@
+rulesPath: ../rules/core.yaml
+providers:
+    - name: java
+      dataPath: ./data/core-1
+tests:
+    - ruleID: httpclient4-to-httpclient5-00010
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00050
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00060
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00070
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00100
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00150
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00200
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1
+    - ruleID: httpclient4-to-httpclient5-00290
+      testCases:
+        - name: tc-1
+          analysisParams:
+            mode: source-only
+          hasIncidents:
+            atLeast: 1

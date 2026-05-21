@@ -1,18 +1,14 @@
 package com.example;
 
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.client.config.RequestConfig;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ManagedHttpClientConnection;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.client.CloseableHttpClient;
 
 public class Application {
     public void example() throws Exception {
-        RequestConfig config = RequestConfig.custom()
-            .setConnectTimeout(30000)
-            .setSocketTimeout(60000)
-            .build();
         CloseableHttpClient client = HttpClients.custom()
-            .setDefaultRequestConfig(config)
+            .setSSLSocketFactory(null)
             .build();
         client.close();
     }

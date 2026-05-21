@@ -1,8 +1,111 @@
-generated_at: "2026-05-11T18:42:08Z"
-source: httpcomponents-client-4
-target: httpcomponents-client-5
-rules_total: 21
-tests_passed: 21
+generated_at: "2026-05-21T21:21:23Z"
+sources:
+    - httpclient4
+    - httpcomponents-client
+targets:
+    - httpclient5
+    - httpcomponents-client
+rules_total: 33
+tests_passed: 33
 tests_failed: 0
 kantra_limitation: 0
 pass_rate: 100
+rules:
+    - rule_id: httpclient4-to-httpclient5-00010
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00020
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00030
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00040
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00050
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00060
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00070
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00080
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00090
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00100
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00110
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00120
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00130
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00140
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00150
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00160
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00170
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00180
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00190
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00200
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00210
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00220
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00230
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00240
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00250
+      test_status: passed
+      source_verified: "false"
+    - rule_id: httpclient4-to-httpclient5-00260
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00270
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00280
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00290
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00300
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00310
+      test_status: passed
+      source_verified: "true"
+    - rule_id: httpclient4-to-httpclient5-00320
+      test_status: passed
+    - rule_id: httpclient4-to-httpclient5-00330
+      test_status: passed
+      source_verified: "true"
